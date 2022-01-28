@@ -6,7 +6,7 @@ if [ "$#" -lt 4 ]; then
     exit 1
 fi
 
-TRACE_DIR=$PWD/dpc3_traces
+TRACE_DIR=$PWD/ipc1_public
 BINARY=${1}
 N_WARM=${2}
 N_SIM=${3}
@@ -42,4 +42,5 @@ if [ ! -f "$TRACE_DIR/$TRACE" ] ; then
 fi
 
 mkdir -p results_${N_SIM}M
-(./bin/${BINARY} -warmup_instructions ${N_WARM}000000 -simulation_instructions ${N_SIM}000000 ${OPTION} -traces ${TRACE_DIR}/${TRACE}) &> results_${N_SIM}M/${TRACE}-${BINARY}${OPTION}.txt
+(./bin/${BINARY} -warmup_instructions ${N_WARM}000000 -simulation_instructions ${N_SIM}000000 ${OPTION} -traces ${TRACE_DIR}/${TRACE}) &> results_${N_SIM}M/${TRACE}-${BINARY}${OPTION}_016kb.txt
+#(./bin/${BINARY} -warmup_instructions ${N_WARM}000000 -simulation_instructions ${N_SIM}000000 ${OPTION} -traces ${TRACE_DIR}/${TRACE}) >> results_${N_SIM}M/${BINARY}${OPTION}.txt
